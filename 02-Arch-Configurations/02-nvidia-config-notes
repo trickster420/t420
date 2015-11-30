@@ -1,0 +1,12 @@
+= = -- Installation / 2015 -- = =
+sudo pacman -S nvidia bumblebee bbswitch primus
+
+= = -- Add your user to bumblebee group -- = =
+gpasswd -a <your_user> bumblebee
+#example: sudo gpasswd -a john bumblebee
+
+= = -- Enable bumblebee daemon -- = =
+systemctl enable bumblebeed.service
+reboot
+
+optirun glxgears -info
