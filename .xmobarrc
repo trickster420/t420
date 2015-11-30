@@ -1,0 +1,15 @@
+Config { font = "-*-terminus-medium-*-*-*-*-160-*-*-*-*-iso8859-1"
+	, bgColor = "black"
+	, fgColor = "grey"
+	, position = TopW L 100
+	, commands = [	Run Network "wlan0" ["-L","0","-H","32","--normal","yellow","--high","green","--low","red","-t","<rx>kb<tx>kb"] 10
+		      , Run Wireless "wlan0" ["-L","40","-H","70","--normal","yellow","--high","green","--low","red","-t","<essid>(<quality>%)"] 8
+		      , Run Cpu ["-L","3","-H","50","--normal","yellow","--high","red","-t","<fc=#E5E500>CPU</fc>: <total><fc=#FFFFFF>%</fc>"] 10		      
+                      , Run Memory ["-t","<fc=#E5E500>RAM</fc>: <fc=#F86F00><used></fc>/<fc=#4BFF43><total></fc><fc=#E5E500> MB</fc>"] 10
+	              , Run Battery ["-t","<left>% / <timeleft>","-L","50","-H","75","-h","green","-n","yell","-l","red"] 10
+		      , Run Date "<fc=#8AD0E6>%a</fc> <fc=#77EA8F>%b</fc> <fc=#77EA8F>%_d</fc> <fc=#8AD0E6>%Y</fc> <fc=#FFFFFF>%H: %M: %S</fc>" "date" 10
+		      , Run StdinReader]
+	, sepChar = "%"
+	, alignSep = "}{"
+	, template = "%StdinReader% }{%memory% | %cpu% | <fc=#58FA58>%battery%</fc> | <fc=#01A9DB>%wlan0wi%<fc=#FFFFFF>-</fc>%wlan0%</fc> | %date%"
+	}
