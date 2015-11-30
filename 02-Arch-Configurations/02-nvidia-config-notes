@@ -17,6 +17,8 @@ reboot
 optirun <application>
 #example: optirun firefox
 
+
+
 = = -- Useful commands -- = =
 #Manually start Bumblebee:
 sudo systemctl start bumblebeed
