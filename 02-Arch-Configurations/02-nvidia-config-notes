@@ -1,3 +1,5 @@
+credits (source of tutorial): https://evilshit.wordpress.com/2013/10/14/how-to-install-bumblebee-on-arch-linux/
+
 = = -- Installation / 2015 -- = =
 sudo pacman -S nvidia bumblebee bbswitch primus
 
@@ -9,4 +11,24 @@ gpasswd -a <your_user> bumblebee
 systemctl enable bumblebeed.service
 reboot
 
-optirun glxgears -info
+
+
+! To start a program and make it use your NVIDIA card
+optirun <application>
+#example: optirun firefox
+
+= = -- Useful commands -- = =
+#Manually start Bumblebee:
+sudo systemctl start bumblebeed
+
+#Manually stop Bumblebee:
+sudo systemctl stop bumblebeed
+
+#Manually activate the NVIDIA card:
+sudo echo ON >> /proc/acpi/bbswitch
+
+#Manually deactivate the NVIDIA card:
+sudo echo OFF >> /proc/acpi/bbswitch
+
+#Checking if the NVIDIA card is activated:
+cat /proc/acpi/bbswitch
